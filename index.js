@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const omdbApiKey = b4781137
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
