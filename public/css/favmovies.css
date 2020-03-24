@@ -1,9 +1,16 @@
+.stylefavmovies {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
 .favmovie {
-  border: 2px solid red;
-  box-shadow: 3px 3px lightgray;
-  padding-bottom: 25px;
-  font-size: 25px;
-  margin-bottom: 25px;  
+    display: flex;
+    flex-wrap: nowrap;  
+    border: 2px solid red;
+    box-shadow: 3px 3px lightgray;
+    padding-bottom: 25px;
+    font-size: 25px;
+    margin-bottom: 25px;  
 }
 
 ol {
@@ -13,9 +20,4 @@ ol {
 a:link {
     text-decoration: none;
     color: black;
-}
-
-.favmovie {
-    display: flex;
-    flex-wrap: nowrap;
 }

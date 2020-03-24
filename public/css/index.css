@@ -1,13 +1,13 @@
 @import 'cinema.css';
-@import 'favmovie.css';
+@import 'favmovies.css';
 @import 'movieprofile.css';
 @import 'watchlist.css';
 @import 'search.css';
 
 * {
     font-family: Oswald;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {

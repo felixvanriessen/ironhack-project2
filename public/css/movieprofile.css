@@ -1,0 +1,47 @@
+.styleprofile {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.movieprofile {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movieimage {
+    width: 30%
+}
+
+.keymoviestats {
+    width: 40%
+}
+
+.statsbullets {
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.description {
+    width: 60%
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.favouritesbtn {
+    margin-right: 10px;
+}
+
+.inputfield {
+    border: 2px solid red;
+    border-radius: 4px;
+    width: 800px;
+    height: 200px;
+  }
+
+.addreviewbtn {
+    width: 150px;
+    height: 50px;
+}  
