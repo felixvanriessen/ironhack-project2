@@ -1,0 +1,53 @@
+.searchsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputfield {
+    border: 2px solid red;
+    border-radius: 4px;
+    width: 600px;
+    height: 100px;
+    margin-top: 25px;
+}
+
+.searchbtn {
+    margin-top: -25px;
+    width: 125px;
+    height: 30px;
+}
+
+.titlesection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cinemalocations {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.locations {
+    line-height: 2.5;
+}
+
+.googlefield {
+    border: 2px solid red;
+    border-radius: 4px;
+    width: 600px;
+    height: 200px;
+    margin-top: 25px;
+}

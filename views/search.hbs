@@ -1,29 +1,35 @@
-<h1>Movie database</h1>
-<h2>The biggest collection of movies in the world...</h2>
+<div class="searchsection">
+  <h1>Movie database</h1>
+  <h2>The largest collection of movies in the world...</h2>
 
-<form class="flexcontainer" action="/" method="get">
-  <input type="text" id="movie" name="movie"><br><br>
-  <button class="searchbtn">SEARCH</button>
-</form>
+  <form class="flexcontainer" action="/" method="get">
+    <input class="inputfield" placeholder="Type a movie title here!" type="text" id="movie" name="movie"><br><br>
+    <button class="searchbtn">SEARCH</button>
+  </form>
+</div>  
 
 <br>
+<br>
+<br>
 
-<h1>Discover all movie theaters in Amsterdam</h1>
-<h2>Find a movie theatre in your neigbourhood...</h2>
+<div class="mapssection">
+  <div class="titlesection">
+    <h1>Discover all movie theaters in Amsterdam</h1>
+    <h2>Find a movie theatre in your neigbourhood...</h2>
+  </div>
 
-<ul class="locations">
-    <a href="#"><li>Amsterdam-West</li></a>
-    <a href="#"><li>Amsterdam-Oost</li></a>
-    <a href="#"><li>Amsterdam-Zuid</li></a>
-    <a href="#"><li>Amsterdam-Noord</li></a>
-    <a href="#"><li>De Pijp</li></a>
-    <a href="#"><li>Centrum</li></a>
-    <a href="#"><li>Jordaan</li></a>
-    <a href="#"><li>De Uitkijk ftw</li></a>
+  <div class="cinemalocations">
+    <ul class="locations">
+        <a href="#"><li>Amsterdam-West</li></a>
+        <a href="#"><li>Amsterdam-Oost</li></a>
+        <a href="#"><li>Amsterdam-Zuid</li></a>
+        <a href="#"><li>Amsterdam-Noord</li></a>
+        <a href="#"><li>Amsterdam-Centrum</li></a>
+    </ul>
 
-</ul>
-
-<p class="googlemaps">Insert google maps view here</p>
-
-
-
+  <form class="googlemaps" action="/" method="get">
+    <input class="googlefield" placeholder="Google field" type="text" id="movie" name="movie"><br><br>
+  </form>
+    
+  </div>
+</div>
