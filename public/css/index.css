@@ -1,14 +1,10 @@
-body {
-    background-color: #E50914
-}
-
-/* @import 'cinema.css';
+@import 'cinema.css';
 @import 'favmovie.css';
 @import 'movieprofile.css';
 @import 'watchlist.css';
 @import 'search.css';
 @import 'auth.css';
-@import 'front.css'; */
+@import 'front.css';
 
 * {
     font-family: Oswald;
