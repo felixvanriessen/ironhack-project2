@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect('mongodb+srv://piepongwong:12345felix@ihp2-zbze0.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,  
-    useUnifiedTopology: true 
+    useUnifiedTopology: true
 })
 .then((x)=>console.log('connected to database'))
 .catch(err=>console.log(err))
