@@ -1,8 +1,13 @@
 <div class='auth'>
+    {{#if errorMessage}}
+        <div class="error-mesage">{{errorMessage}}</div>
+    {{/if}}
+
+
     <h2 class='auth-title'>Welcome to Moviefy</h2>
     <form class='auth-container' action="signup" method="POST">
         <label for="username">Choose a username:</label>
-        <input name='username' type="text" pattern="/^[0-9a-zA-Z]+$/" required placeholder="Numbers and Letters only">
+        <input name='username' type="text" pattern="^[0-9a-zA-Z]+$" required placeholder="Numbers and Letters only">
         <label for="password">Choose a password:</label>
         <input name='password' type="text" required placeholder="Password">
         <button type="submit">Sign Up</button>
