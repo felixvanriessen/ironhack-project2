@@ -1,53 +1,43 @@
 <div class="styleprofile">
-    <h1>Movie Title</h1>
+    <h1>{{movieHbs.Title}}</h1>
 
     <div class="movieprofile">
         <div class="movieimage">
-            <img src="/images/movie2.png" alt="moviename">
+            <img src={{movieHbs.Poster}} alt="moviename">
         </div>
 
         <div class="keymoviestats">
             <h2>Movie summary</h2>
             <ul class="statsbullets">
-                <li>Genre:</li>
-                <li>Actors:</li>
-                <li>Producer:</li>
-                <li>Year:</li>
-                <li>Country/Language:</li>
-                <li>IMDb Rating:</li>
+                <li>Genre:{{movieHbs.Genre}}</li>
+                <li>Actors:{{movieHbs.Actors}}</li>
+                <li>Producer:{{movieHbs.Director}}</li>
+                <li>Year:{{movieHbs.Released}}</li>
+                <li>Country/Language:{{movieHbs.Language}}</li>
+                <li>IMDb Rating:{{movieHbs.imdbRating}}</li>
             </ul>
         </div>
 
         <div class="description">
-            <h2>Movie Description</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit temporibus similique, corporis reiciendis beatae voluptates cum exercitationem minima rem doloribus, libero ea dolorum? Saepe, vero labore iusto iure facilis quasi. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit temporibus similique, corporis reiciendis beatae voluptates cum exercitationem minima rem doloribus, libero ea dolorum? Saepe, vero labore iusto iure facilis quasi.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit temporibus similique, corporis reiciendis beatae voluptates cum exercitationem minima rem doloribus, libero ea dolorum? Saepe, vero labore iusto iure facilis quasi.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit temporibus similique, corporis reiciendis beatae voluptates cum exercitationem minima rem doloribus, libero ea dolorum? Saepe, vero labore iusto iure facilis quasi.</p>
+            <h2>Movie Plot</h2>
+            <p>{{movieHbs.Plot}}</p>
         </div>
     </div>
-    
-    <br>
 
     <div class="btns">
-        <div class="addtofavourites">
-            <button class="favouritesbtn">ADD TO FAVOURITES</button>
-        </div>
-
-        <div class="addtowatchlist">
-            <button class="watchlistbtn">ADD TO WATCHLIST</button>
-        </div>
+        <a href="/">Add to Favourites</a>
+        <a href="/">Add to Watchlist</a>
     </div>
 
-    <br>
-
-    <div class="reviewsarea">
+    {{!-- <div class="reviewsarea">
         <div class="commentssection">
             <h2>USER REVIEWS</h2>
 
             <p>Please let us know your views on this movie!<br></p>
-            <br>
             <form class="userreview" action="/" method="post">
                 <input class="inputfield" type="text" id="review" name="review"><br><br>
                 <button class="addreviewbtn">ADD REVIEW</button>
             </form>
         </div>
-    </div>    
+    </div>     --}}
 </div>
