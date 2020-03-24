@@ -1,0 +1,21 @@
+.favmovie {
+  border: 2px solid red;
+  box-shadow: 3px 3px lightgray;
+  padding-bottom: 25px;
+  font-size: 25px;
+  margin-bottom: 25px;  
+}
+
+ol {
+    list-style-type: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.favmovie {
+    display: flex;
+    flex-wrap: nowrap;
+}
