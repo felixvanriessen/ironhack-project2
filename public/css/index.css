@@ -5,6 +5,7 @@
 @import 'search.css';
 @import 'auth.css';
 @import 'front.css';
+@import 'headfoot.css';
 
 * {
     font-family: Oswald;
