@@ -1,0 +1,21 @@
+.maintheatretitle {
+    padding-bottom: 1px;       
+}
+
+.theatredetails {
+    float: left;
+    line-height: 1.5;
+}
+
+.theatreimages {
+    float: right;
+    box-shadow: 4px 4px lightgrey;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 1px;
+}
+
+.currentlyplayed {
+    line-height: 1.5;
+}
+
