@@ -1,0 +1,9 @@
+footer p {
+    background-color: #E50914;
+    color:white;
+    font-size: 0.8rem;
+    height: 5vh;
+    text-align: center;
+    line-height: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
