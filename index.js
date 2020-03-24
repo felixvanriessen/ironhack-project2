@@ -16,7 +16,7 @@ app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-mongoose.connect('mongodb+srv://felix:Three534135@ihp2-zbze0.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://felix:Three534135@ihp2-zbze0.mongodb.net', {
     useNewUrlParser: true,  
     useUnifiedTopology: true 
 })
