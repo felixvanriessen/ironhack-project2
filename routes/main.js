@@ -3,7 +3,6 @@ const router = express.Router()
 const Profile = require('../models/profilemodel')
 const axios = require('axios')
 
-
 router.use((req,res,next) => {
     if(req.session.currentUser) {
         next()
@@ -25,8 +24,17 @@ router.get("/favmovies", (req,res) => {
 })
 
 router.get("/watchlist", (req,res) => {
-    res.render("watchlist")
+    Profile.findOne({user:req.session.currentUser._id})
+    .then(profile=>{
+        res.render('watchlist', {moviesHbs:profile.watchlist})
+    })
+    .catch(err=>console.log(err))
 })
+
+router.get('/fav/:movie', (req,res)=>{
+    console.log(req.params.movie)
+})
+
 
 router.get("/search", (req,res) => {
     res.render("search")
@@ -41,7 +49,5 @@ router.post("/search", (req,res) => {
     })
     .catch(err=>{console.log(err)})
 })
-
-
 
 module.exports = router
