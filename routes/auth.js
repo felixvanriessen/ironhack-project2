@@ -36,10 +36,6 @@ router.post('/signup', (req,res) => {
         }
 
     })
-    // const username = req.body.username;
-    // const password = req.body.password;
-    // const salt = bcrypt.genSalt(bcryptSalt);
-    // const hashPass = bcrypt.hash(password,salt);
     
 })
 
@@ -72,12 +68,8 @@ router.post("/login", (req,res) => {
 
 router.get("/logout", (req,res,next) => {
     req.session.destroy((err) => {
-        res.redirect("/login")
+        res.redirect("/")
     });
 });
-
-router.get('/settings', (req,res)=>{
-    res.render('settings')
-})
 
 module.exports = router
