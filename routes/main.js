@@ -72,4 +72,15 @@ router.get('/movieprofile/:movie', (req,res)=>{
     .catch(err=>{console.log(err)})
 })
 
+router.get('/settings',(req,res)=>{
+    res.render('settings')
+})
+
+router.post('/settings', (req,res)=>{
+    Profile.findOneAndUpdate({user:req.session.currentUser._id}, {
+
+    })
+    res.redirect('search')
+})
+
 module.exports = router
