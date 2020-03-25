@@ -11,8 +11,8 @@ router.get('/signup', (req,res)=>{
 router.post('/signup', (req,res) => {
     const username = req.body.username;
     const password = req.body.password;
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password,salt);
+    const salt = bcrypt.genSalt(bcryptSalt);
+    const hashPass = bcrypt.hash(password,salt);
 
     User
     .findOne({"username": username})
@@ -42,11 +42,6 @@ router.get('/login', (req,res)=>{
 router.post("/login", (req,res) => {
     const theUsername = req.body.username;
     const thePassword = req.body.password;
-
-    if(theUsername === "" || thePassword === "") {
-        res.render("login",{errorMessage: "Please enter both username and password to sign up"})
-        return;
-    }
 
     User
     .findOne({"username": theUsername})
