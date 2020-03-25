@@ -32,7 +32,21 @@ router.get("/watchlist", (req,res) => {
 })
 
 router.get('/fav/:movie', (req,res)=>{
-    console.log(req.params.movie)
+    Profile.findOneAndUpdate({user:req.session.currentUser._id},{ "$push": {fav_movies:req.params.movie} })
+    .then(profile=>{
+    })
+    .catch(err=>console.log(err))
+    res.redirect('../favmovies')
+
+    // let movie = req.params.movie.split(' ').join('+')
+    // axios.get(`http://www.omdbapi.com/?apikey=b4781137&t=${movie}`)
+    // .then(response=>{
+    //     let mov = response.data
+    //     Profile.findOne({user:req.session.currentUser._id})
+    //     .then(profile=>{
+    //         profile.fav_movies.unshift(mov.Title)
+    //     })  
+    // })
 })
 
 
