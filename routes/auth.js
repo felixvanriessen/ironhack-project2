@@ -1,39 +1,46 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/usermodel')
+const Profile = require('../models/profilemodel')
 const bcrypt = require("bcrypt");
-const bcryptSalt = 10;
-const session = require('express-session')
+
 
 router.get('/signup', (req,res)=>{
     res.render('signup')
 })
 
 router.post('/signup', (req,res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const salt = bcrypt.genSalt(bcryptSalt);
-    const hashPass = bcrypt.hash(password,salt);
-
     User
-    .findOne({"username": username})
+    .findOne({"username": req.body.username})
     .then(user => {
         if(user != null) {
             res.render("signup",{errorMessage: "The username already exists"})
+        } else {
+            bcrypt.hash(req.body.password, 10, function(err, hash){
+                User.create({
+                    username:req.body.username,
+                    password:hash
+                })
+                .then(newUser=>{
+                    Profile.create({
+                        user:newUser._id
+                    })
+                    .then(()=>{
+                        console.log('new profile created')
+                        res.redirect('/login')
+                    })
+                    .catch(err=>console.log(err))
+                })
+                .catch(err=>console.log(err))
+            })
         }
-    })
 
-    User
-    .create({
-        username,
-        password: hashPass
     })
-    .then(()=> {
-        res.redirect("/login");
-    })
-    .catch(error => {
-        console.log(error)
-    })
+    // const username = req.body.username;
+    // const password = req.body.password;
+    // const salt = bcrypt.genSalt(bcryptSalt);
+    // const hashPass = bcrypt.hash(password,salt);
+    
 })
 
 router.get('/login', (req,res)=>{
@@ -41,31 +48,22 @@ router.get('/login', (req,res)=>{
 })
 
 router.post("/login", (req,res) => {
-    const theUsername = req.body.username;
-    const thePassword = req.body.password;
-
     User
-    .findOne({"username": theUsername})
+    .findOne({"username": req.body.username})
     .then(user => {
         if(!user) {
-            res.render("login", {errorMessage: "The username doesn't exist"})
+            res.send('This user does not exist')
         }
         else {
-            bcrypt.compare(thePassword, user.password, function(err, result) {
+            bcrypt.compare(req.body.password, user.password, function(err, result) {
                 if (!result) {
-                    res.send('incorrect')
+                    res.send('incorrect credentials')
                 }
                 else {
                     req.session.currentUser = user
                     res.redirect('/search')
                 }
             })
-        }
-        if(bcrypt.compareSync(thePassword,user.password)) {
-            req.session.currentUser = user;
-            res.redirect("/") 
-        } else {
-            res.render("login", {errorMessage: "Incorrect password"});
         }
     })
     .catch(error => console.log(error))

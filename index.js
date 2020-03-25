@@ -23,11 +23,6 @@ mongoose.connect('mongodb+srv://piepongwong:12345felix@ihp2-zbze0.mongodb.net/te
 .then((x)=>console.log('connected to database'))
 .catch(err=>console.log(err))
 
-
-app.use('/', require('./routes/indexroute'))
-app.use('/', require('./routes/auth'))
-app.use('/', require('./routes/main'))
-
 app.use(session({
     secret: "basic-auth-secret",
     cookie: {maxAge: 60000},
@@ -36,6 +31,10 @@ app.use(session({
         ttl: 24 * 60 * 60
     })
 }));
+
+app.use('/', require('./routes/indexroute'))
+app.use('/', require('./routes/auth'))
+app.use('/', require('./routes/main'))
 
 app.listen(3000, () =>{
     console.log('listening on', 3000)
