@@ -17,11 +17,15 @@ router.get("/cinema", (req,res) => {
 })
 
 router.get("/favmovies", (req,res) => {
-    res.render("favmovies")
+    Profile.findOne({user:req.session.currentUser._id})
+    .then(profile=>{
+        res.render('favmovies', {moviesHbs:profile.fav_movies})
+    })
+    .catch(err=>console.log(err))
 })
 
-router.get("/movieprofile", (req,res) => {
-    res.render("movieprofile")
+router.get("/watchlist", (req,res) => {
+    res.render("watchlist")
 })
 
 router.get("/search", (req,res) => {
@@ -38,8 +42,6 @@ router.post("/search", (req,res) => {
     .catch(err=>{console.log(err)})
 })
 
-router.get("/watchlist", (req,res) => {
-    res.render("watchlist")
-})
+
 
 module.exports = router

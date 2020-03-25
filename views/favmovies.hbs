@@ -3,13 +3,10 @@
 
 <div class="favmovienames">
     <ol class="orderedlistfavmovies">
-        {{#each moviesHbs}}
-            <section>
+        {{#each moviesHbs as |movie|}}
                 <li class="favmovie">
-                    <div><a href="#">Movie Name 1</div></a> 
-                    <div>IMDb Rating Movie 1</div>
+                    <div><a href="#">{{movie}}</div></a> 
                 </li>
-            </section>
         {{/each}}
     </ol>
 </div>    
