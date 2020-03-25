@@ -2,15 +2,11 @@
   <h1>Movie database</h1>
   <h2>The largest collection of movies in the world...</h2>
 
-  <form class="flexcontainer" action="/" method="get">
-    <input class="inputfield" placeholder="Type a movie title here!" type="text" id="movie" name="movie"><br><br>
-    <button class="searchbtn">SEARCH</button>
+  <form class="flexcontainer" action="/search" method="POST">
+    <input class="inputfield" placeholder="Type a movie title here!" type="text" id="movie" name="movie">
+    <button type='submit' class="searchbtn">SEARCH</button>
   </form>
 </div>  
-
-<br>
-<br>
-<br>
 
 <div class="mapssection">
   <div class="titlesection">
@@ -28,7 +24,7 @@
     </ul>
 
   <form class="googlemaps" action="/" method="get">
-    <input class="googlefield" placeholder="Google field" type="text" id="movie" name="movie"><br><br>
+    <input class="googlefield" placeholder="Google field" type="text" id="movie" name="movie">
   </form>
   </div>
 </div>
