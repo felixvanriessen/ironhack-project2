@@ -1,4 +1,9 @@
 <div class='auth'>
+    {{#if errorMessage}}
+        <div class="error-mesage">{{errorMessage}}</div>
+    {{/if}}
+
+
     <h2 class='auth-title'>Welcome to Moviefy</h2>
     <form class='auth-container' action="signup" method="POST">
         <label for="username">Choose a username:</label>
