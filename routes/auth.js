@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/usermodel')
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
+const session = require('express-session')
 
 router.get('/signup', (req,res)=>{
     res.render('signup')
@@ -28,7 +29,7 @@ router.post('/signup', (req,res) => {
         password: hashPass
     })
     .then(()=> {
-        res.redirect("/");
+        res.redirect("/login");
     })
     .catch(error => {
         console.log(error)
@@ -48,9 +49,18 @@ router.post("/login", (req,res) => {
     .then(user => {
         if(!user) {
             res.render("login", {errorMessage: "The username doesn't exist"})
-            return
         }
-
+        else {
+            bcrypt.compare(thePassword, user.password, function(err, result) {
+                if (!result) {
+                    res.send('incorrect')
+                }
+                else {
+                    req.session.currentUser = user
+                    res.redirect('/search')
+                }
+            })
+        }
         if(bcrypt.compareSync(thePassword,user.password)) {
             req.session.currentUser = user;
             res.redirect("/") 
@@ -58,10 +68,9 @@ router.post("/login", (req,res) => {
             res.render("login", {errorMessage: "Incorrect password"});
         }
     })
-    .catch(error => {
-        next(error);
-    })
+    .catch(error => console.log(error))
 })
+
 
 router.get("/logout", (req,res,next) => {
     req.session.destroy((err) => {
