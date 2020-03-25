@@ -5,6 +5,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+require('dotenv').config()
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -16,7 +17,7 @@ hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect('mongodb+srv://piepongwong:12345felix@ihp2-zbze0.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.db, {
     useNewUrlParser: true,  
     useUnifiedTopology: true
 })

@@ -14,7 +14,7 @@ router.post('/signup', (req,res) => {
     .findOne({"username": req.body.username})
     .then(user => {
         if(user != null) {
-            res.render("signup",{errorMessage: "The username already exists"})
+            res.send('user already exists')
         } else {
             bcrypt.hash(req.body.password, 10, function(err, hash){
                 User.create({
