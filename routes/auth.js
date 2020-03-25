@@ -18,7 +18,7 @@ router.post('/signup', (req,res) => {
     User
     .findOne({"username": username})
     .then(user => {
-        if(user != null) {
+        if(user !== null) {
             res.render("signup",{errorMessage: "The username already exists"})
         }
     })
@@ -47,13 +47,13 @@ router.post("/login", (req,res) => {
     User
     .findOne({"username": theUsername})
     .then(user => {
-        if(!user) {
+        if(user !== null) {
             res.render("login", {errorMessage: "The username doesn't exist"})
         }
         else {
             bcrypt.compare(thePassword, user.password, function(err, result) {
                 if (!result) {
-                    res.send('incorrect')
+                    res.send('This password is incorrect!')
                 }
                 else {
                     req.session.currentUser = user
@@ -61,16 +61,15 @@ router.post("/login", (req,res) => {
                 }
             })
         }
-        if(bcrypt.compareSync(thePassword,user.password)) {
-            req.session.currentUser = user;
-            res.redirect("/") 
-        } else {
-            res.render("login", {errorMessage: "Incorrect password"});
-        }
+        // if(bcrypt.compareSync(thePassword,user.password)) {
+        //     req.session.currentUser = user;
+        //     res.redirect("/") 
+        // } else {
+        //     res.render("login", {errorMessage: "Incorrect password"});
+        // }
     })
-    .catch(error => console.log(error))
+    .catch(error => res.send("An error happened: ",error))
 })
-
 
 router.get("/logout", (req,res,next) => {
     req.session.destroy((err) => {
