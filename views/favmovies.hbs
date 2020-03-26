@@ -6,7 +6,8 @@
     <ol class="orderedlistfavmovies">
         {{#each moviesHbs as |movie|}}
                 <li class="favmovie">
-                    <div><a href="/movieprofile/{{movie}}">{{movie}}</a></div>
+                    <a href="/movieprofile/{{movie}}">{{movie}}</a>
+                    <a href="/removef/{{movie}}">remove</a>
                 </li>
         {{/each}}
     </ol>

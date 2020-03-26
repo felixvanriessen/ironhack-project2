@@ -10,12 +10,10 @@
     box-shadow: 3px 3px lightgray;
     padding-bottom: 25px;
     font-size: 25px;
-    margin-bottom: 25px;  
+    margin-bottom: 25px;
+    justify-content: space-between;
 }
 
-ol {
-    list-style-type: none;
-}
 
 a:link {
     text-decoration: none;
