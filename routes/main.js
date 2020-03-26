@@ -16,7 +16,8 @@ router.get("/cinema", (req,res) => {
 })
 
 router.get("/favmovies", (req,res) => {
-    Profile.findOne({user:req.session.currentUser._id})
+    Profile
+    .findOne({user:req.session.currentUser._id})
     .then(profile=>{
         res.render('favmovies', {moviesHbs:profile.fav_movies})
     })
@@ -78,7 +79,7 @@ router.get('/settings',(req,res)=>{
 
 router.post('/settings', (req,res)=>{
     Profile.findOneAndUpdate({user:req.session.currentUser._id}, {
-
+        
     })
     res.redirect('search')
 })

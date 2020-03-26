@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 require('dotenv').config()
+const multer = require("multer")
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
