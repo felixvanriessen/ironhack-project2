@@ -97,7 +97,7 @@ router.get("/search", (req,res) => {
     .then(cinemaData => {
         Profile.findOne({user:req.session.currentUser._id})
         .then(profile=>{
-            res.render("search",{userHbs : profile})
+            res.render("search",{userHbs : profile, cinemaHbs:cinemaData})
         })
         .catch(err=>console.log(err))
     })

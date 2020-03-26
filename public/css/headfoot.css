@@ -11,6 +11,17 @@ footer p {
 nav {
     display: flex;
     justify-content: space-evenly;
-    height: 5vh;
+    align-items: center;
+    height: 10vh;
     width: 100vw;
+    background-color: #E50914;
+}
+
+.navlink {
+    color: white;
+}
+
+nav img {
+    height:50px;
+    border:2px solid rgb(151, 8, 15);
 }
