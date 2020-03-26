@@ -138,6 +138,8 @@ router.get('/settings',(req,res)=>{
 
 })
 
+
+//update user settings
 router.post("/save",upload.single("profileimage"),(req,res) => {
     Profile
     .findOneAndUpdate({user:req.session.currentUser._id}, {

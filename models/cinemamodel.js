@@ -6,7 +6,8 @@ const cinemaSchema = new Schema({
     seats: Number,
     region: String,
     street: String,
-    image: String
+    image: String,
+    location: { type: { type: String }, coordinates: [Number] }
 });
 
 const Cinema = mongoose.model("cinema",cinemaSchema);

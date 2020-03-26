@@ -44,10 +44,7 @@
     line-height: 2.5;
 }
 
-.googlefield {
-    border: 2px solid red;
-    border-radius: 4px;
-    width: 600px;
-    height: 200px;
-    margin-top: 25px;
-}
+#map {
+    width: 50%;
+    height: 400px;
+  }
