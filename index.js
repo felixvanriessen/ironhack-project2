@@ -39,6 +39,6 @@ app.use('/', require('./routes/indexroute'))
 app.use('/', require('./routes/auth'))
 app.use('/', require('./routes/main'))
 
-app.listen(3000, () =>{
-    console.log('listening on', 3000)
+app.listen(process.env.PORT, () =>{
+    console.log('listening on', process.env.PORT)
 })
