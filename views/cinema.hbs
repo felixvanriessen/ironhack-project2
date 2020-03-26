@@ -1,6 +1,6 @@
 {{>navbar}}
 <div class="stylecinema">
-<h1>Movie theatre Amsterdam-Zuid</h1>
+<h1>Movie theatre {{cinemaHbs.region}}</h1>
 
 <br>
 <div class="theatredetailsmain">    
@@ -8,15 +8,15 @@
     <h2>Movie theatre details</h2>    
     <div class="theatredetails">
         <ul>
-            <li>Opening days:</li>
-            <li>Seats:</li>
-            <li>Region:</li>
-            <li>Street:</li>
+            <li>Opening days: {{cinemaHbs.openingdays}}</li>
+            <li>Seats: {{cinemaHbs.seats}}</li>
+            <li>Region: {{cinemaHbs.region}}</li>
+            <li>Street: {{cinemaHbs.street}}</li>
         </ul>
     </div>
 
     <div class="theatreimages">
-        <img class="movietheatreimg" src="/images/theatre1.jpg" alt="movietheatrename">
+        <img class="movietheatreimg" src={{cinemaHbs.image}} alt="movietheatrename">
     </div>
 </div>
 
@@ -30,12 +30,9 @@
 <div class="currentlyplayed">
     <h2>Movies currently being played</h2>
     <ul class="movieplays">
-        <li>Monday 8PM: Movie Title</li>
-        <li>Tuesday 8PM: Movie Title</li>
-        <li>Wednesday 8PM: Movie Title</li>
-        <li>Thursday 8PM: Movie Title</li>
-        <li>Friday 8PM: Movie Title</li>
-        <li>Saturday 8PM: Movie Title</li>
+        {{#each cinemaHbs.openingdays as |day|}}
+            <li> {{day}} 8PM</li>
+        {{/each}}
     </ul>
 </div>
 </section>

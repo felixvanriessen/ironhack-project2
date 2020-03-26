@@ -17,11 +17,9 @@
 
   <div class="cinemalocations">
     <ul class="locations">
-        <a href="#"><li>Amsterdam-West</li></a>
-        <a href="#"><li>Amsterdam-Oost</li></a>
-        <a href="#"><li>Amsterdam-Zuid</li></a>
-        <a href="#"><li>Amsterdam-Noord</li></a>
-        <a href="#"><li>Amsterdam-Centrum</li></a>
+      {{#each cinemaHbs}}
+        <a href="/cinema/{{_id}}"><li>{{region}}</li></a>
+      {{/each}}
     </ul>
 
   <form class="googlemaps" action="/" method="get">

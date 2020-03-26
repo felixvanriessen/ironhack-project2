@@ -62,9 +62,8 @@ router.post("/login", (req,res) => {
             })
         }
     })
-    .catch(error => console.log(error))
+    .catch(error => res.send("An error happened: ",error))
 })
-
 
 router.get("/logout", (req,res,next) => {
     req.session.destroy((err) => {
