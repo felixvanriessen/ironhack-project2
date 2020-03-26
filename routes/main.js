@@ -3,6 +3,9 @@ const router = express.Router()
 const Profile = require('../models/profilemodel')
 const Cinema = require('../models/cinemamodel')
 const axios = require('axios')
+const multer = require("multer")
+const upload = multer({ dest: './public/uploads/' });
+
 
 router.use((req,res,next) => {
     if(req.session.currentUser) {
@@ -89,14 +92,34 @@ router.get('/movieprofile/:movie', (req,res)=>{
 })
 
 router.get('/settings',(req,res)=>{
-    res.render('settings')
+
+    Profile
+    .findOne({user: req.session.currentUser._id})
+    .then(currentsettings => {
+        res.render('settings',{settingsHbs:currentsettings})    
+    })
+    .catch(error => {
+        res.render("An error has happened: ", error)
+    })
+
 })
 
-router.post('/settings', (req,res)=>{
-    Profile.findOneAndUpdate({user:req.session.currentUser._id}, {
-        
+router.post("/save",upload.single("profileimage"),(req,res) => {
+    Profile
+    .findOneAndUpdate({user:req.session.currentUser._id}, {
+        name: req.body.username,
+        imagefile: req.file.filename,
+        nationality: req.body.nationality,
+        birthyear: req.body.birthyear,
+        firstlanguage: req.body.firstlanguage
+     })
+    .then(() => {
+        console.log("Your profile has been updated!")
+        res.redirect('/settings')
     })
-    res.redirect('search')
+    .catch(error => {
+        console.log("An error has happened: ", error)
+    }) 
 })
 
 module.exports = router
