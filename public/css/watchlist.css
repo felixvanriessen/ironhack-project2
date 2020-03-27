@@ -1,22 +1,2 @@
-.stylewatchlist {
-    margin-left: 25px;
-    margin-right: 25px;
-}
 
-.moviewatchlist {
-    display: flex;
-    flex-wrap: nowrap;  
-    border: 2px solid red;
-    box-shadow: 3px 3px lightgray;
-    padding-bottom: 25px;
-    font-size: 25px;
-    margin-bottom: 25px;
-    justify-content: space-between;
-}
-
-
-a:link {
-    text-decoration: none;
-    color: black;
-}
 

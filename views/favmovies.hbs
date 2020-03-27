@@ -1,12 +1,12 @@
-{{>navbar movie}}
-<div class=stylefavmovies>
-<h1>Your all-time favourite movies</h1>
+{{>navbar}}
 
-<div class="favmovienames">
-    <ol class="orderedlistfavmovies">
+<h1 class='list-title'>Your all-time favourite movies</h1>
+
+<div class="list-container">
+    <ol>
         {{#each moviesHbs as |movie|}}
-                <li class="favmovie">
-                    <a href="/movieprofile/{{movie}}">{{movie}}</a>
+                <li class="list-item">
+                    <a id='moviename' href="/movieprofile/{{movie}}">{{movie}}</a>
                     <a href="/removef/{{movie}}">remove</a>
                 </li>
         {{/each}}
