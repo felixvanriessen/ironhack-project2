@@ -1,14 +1,13 @@
-{{>navbar}}
+{{>navbar user=userHbs}}
 
 <h1 class='list-title-w'>Your movies watchlist ... Gotta Watch 'em All</h1>
 
 <div class="list-container">
     <ol>
-        {{#each moviesHbs as |movie|}}
-                
+        {{#each userHbs.watchlist as |movie|}}
                 <li class="list-item">
-                <a id='moviename' href="/movieprofile/{{movie}}"></a><p>{{movie}}</p></a>
-                <a href="/removew/{{movie}}">remove</a>
+                    <a id='moviename' href="/movieprofile/{{movie}}">{{movie}}</a>
+                    <a href="/removew/{{movie}}">remove</a>
                 </li>
                 
         {{/each}}

@@ -1,10 +1,10 @@
-{{>navbar}}
+{{>navbar user=userHbs}}
 
 <h1 class='list-title'>Your all-time favourite movies</h1>
 
 <div class="list-container">
     <ol>
-        {{#each moviesHbs as |movie|}}
+        {{#each userHbs.fav_movies as |movie|}}
                 <li class="list-item">
                     <a id='moviename' href="/movieprofile/{{movie}}">{{movie}}</a>
                     <a href="/removef/{{movie}}">remove</a>

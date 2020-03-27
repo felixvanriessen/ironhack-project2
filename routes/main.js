@@ -32,7 +32,7 @@ router.get("/favmovies", (req,res) => {
     Profile
     .findOne({user:req.session.currentUser._id})
     .then(profile=>{
-        res.render('favmovies', {moviesHbs:profile.fav_movies})
+        res.render('favmovies', {userHbs:profile})
     })
     .catch(err => console.log(err))
 })
@@ -41,7 +41,7 @@ router.get("/favmovies", (req,res) => {
 router.get("/watchlist", (req,res) => {
     Profile.findOne({user:req.session.currentUser._id})
     .then(profile=>{
-        res.render('watchlist', {moviesHbs:profile.watchlist})
+        res.render('watchlist', {userHbs:profile})
     })
     .catch(err=>console.log(err))
 })
