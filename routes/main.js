@@ -20,7 +20,12 @@ router.get("/cinema/:id", (req,res) => {
     Cinema
     .findById(req.params.id)
     .then(cinemafound => {
-        res.render("cinema", {cinemaHbs: cinemafound});
+        Profile
+        .findOne({user:req.session.currentUser._id})
+        .then(profile=>{
+            res.render("cinema", {data: { userHbs: profile, cinemaHbs: cinemafound} });
+        })
+        .catch(err => console.log(err))
     })
     .catch(error => {
         res.render("error",error);
@@ -48,7 +53,7 @@ router.get("/watchlist", (req,res) => {
 
 //add movie name to profile fav_movies list
 router.get('/fav/:movie', (req,res)=>{
-    Profile.findOneAndUpdate({user:req.session.currentUser._id},{ "$push": {fav_movies:req.params.movie} })
+    Profile.findOneAndUpdate({user:req.session.currentUser._id},{ "$addToSet": {fav_movies:req.params.movie} })
     .then(profile=>{
     })
     .catch(err=>console.log(err))
@@ -111,7 +116,12 @@ router.post("/search", (req,res) => {
     axios.get(`http://www.omdbapi.com/?apikey=b4781137&t=${searchterm}`)
     .then(response=>{
         let movieData = response.data
-        res.render('movieprofile',{movieHbs:movieData})
+        Profile
+        .findOne({user:req.session.currentUser._id})
+        .then(profile=>{
+            res.render("movieprofile", {data: { userHbs: profile, movieHbs:movieData} })
+        })
+        .catch(err => console.log(err))
     })
     .catch(err=>{console.log(err)})
 })
@@ -122,7 +132,12 @@ router.get('/movieprofile/:movie', (req,res)=>{
     axios.get(`http://www.omdbapi.com/?apikey=b4781137&t=${mov}`)
     .then(response=>{
         let movieData = response.data
-        res.render('movieprofile',{movieHbs:movieData})
+        Profile
+        .findOne({user:req.session.currentUser._id})
+        .then(profile=>{
+            res.render("movieprofile", {data: { userHbs: profile, movieHbs:movieData} })
+        })
+        .catch(err => console.log(err))
     })
     .catch(err=>{console.log(err)})
 })
@@ -133,7 +148,11 @@ router.get('/settings',(req,res)=>{
     Profile
     .findOne({user: req.session.currentUser._id})
     .then(currentsettings => {
-        res.render('settings',{settingsHbs:currentsettings})    
+        Profile.findOne({user:req.session.currentUser._id})
+        .then(profile=>{
+            res.render('settings',{data: {settingsHbs:currentsettings, userHbs:profile}}) 
+        })
+        .catch(err=>console.log(err))   
     })
     .catch(error => {
         res.render("An error has happened: ", error)
@@ -154,7 +173,6 @@ router.post("/save",upload.single("profileimage"),(req,res) => {
         })
         .catch(err=>console.log(err))
     }
-
     Profile
     .findOneAndUpdate({user:req.session.currentUser._id}, {
         name: req.body.username,

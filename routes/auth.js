@@ -23,7 +23,8 @@ router.post('/signup', (req,res) => {
                 })
                 .then(newUser=>{
                     Profile.create({
-                        user:newUser._id
+                        user:newUser._id,
+                        name:newUser.username
                     })
                     .then(()=>{
                         console.log('new profile created')

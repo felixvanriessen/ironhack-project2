@@ -1,44 +1,32 @@
-{{>navbar}}
+{{>navbar user=data.userHbs}}
 <div class="styleprofile">
-    <h1>{{movieHbs.Title}}</h1>
+    <h1>{{data.movieHbs.Title}}</h1>
 
     <div class="movieprofile">
         <div class="movieimage">
-            <img src={{movieHbs.Poster}} alt="moviename">
+            <img src={{data.movieHbs.Poster}} alt="moviename">
         </div>
 
         <div class="keymoviestats">
             <h2>Movie summary</h2>
             <ul class="statsbullets">
-                <li>Genre:{{movieHbs.Genre}}</li>
-                <li>Actors:{{movieHbs.Actors}}</li>
-                <li>Producer:{{movieHbs.Director}}</li>
-                <li>Year:{{movieHbs.Released}}</li>
-                <li>Country/Language:{{movieHbs.Language}}</li>
-                <li>IMDb Rating:{{movieHbs.imdbRating}}</li>
+                <li>Genre:{{data.movieHbs.Genre}}</li>
+                <li>Actors:{{data.movieHbs.Actors}}</li>
+                <li>Producer:{{data.movieHbs.Director}}</li>
+                <li>Year:{{data.movieHbs.Released}}</li>
+                <li>Country/Language:{{data.movieHbs.Language}}</li>
+                <li>IMDb Rating:{{data.movieHbs.imdbRating}}</li>
             </ul>
         </div>
 
         <div class="description">
             <h2>Movie Plot</h2>
-            <p>{{movieHbs.Plot}}</p>
+            <p>{{data.movieHbs.Plot}}</p>
         </div>
     </div>
 
     <div class="btns">
-        <a class="btn1" href="/fav/{{movieHbs.Title}}">Add to Favourites</a>
-        <a class="btn2" href="/watch/{{movieHbs.Title}}">Add to Watchlist</a>
+        <a class="btn1" href="/fav/{{data.movieHbs.Title}}">Add to Favourites</a>
+        <a class="btn2" href="/watch/{{data.movieHbs.Title}}">Add to Watchlist</a>
     </div>
-
-    {{!-- <div class="reviewsarea">
-        <div class="commentssection">
-            <h2>USER REVIEWS</h2>
-
-            <p>Please let us know your views on this movie!<br></p>
-            <form class="userreview" action="/" method="post">
-                <input class="inputfield" type="text" id="review" name="review"><br><br>
-                <button class="addreviewbtn">ADD REVIEW</button>
-            </form>
-        </div>
-    </div>     --}}
 </div>

@@ -10,8 +10,9 @@
 }
 
 .list-container {
-    min-height: 75vh;
+    height: 75vh;
     width: 100vw;
+    overflow:scroll;
 }
 
 .list-container ol {
@@ -58,6 +59,9 @@
         width: 50%;
         padding: 15px;
         margin-bottom: 15px;
+    }
+    .list-title-w {
+        font-size: 2rem;
     }
 }
 

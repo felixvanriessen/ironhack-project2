@@ -1,6 +1,8 @@
 .styleprofile {
     margin-left: 25px;
     margin-right: 25px;
+    height: 85vh;
+    overflow: scroll;
 }
 
 .movieprofile {
@@ -40,11 +42,13 @@
     box-shadow: 0px 2px 5px black;
     font-size: 1.3rem;
     padding-left: 3px;
+    text-decoration: none;
 }
 
 .btn2 {
     background-color: #E50914;
     border: none;
+    text-decoration: none;
     color: white;
     width: 140px;
     height: 35px;
@@ -79,11 +83,15 @@
     }
     
     .movieimage {
-        width: 80%;
+        width: 100%;
+    }
+    .movieimage img{
+        width: 60%;
     }
     
     .keymoviestats {
         margin-top: 5px;
+        width: 100%;
     }
     
     .statsbullets {
@@ -92,12 +100,16 @@
     }
     
     .description {
+
         margin-top: 5px;
+        width: 100%;
     }
     
     .btns {
         display: flex;
         flex-direction: row;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
     
     .btn1 {
