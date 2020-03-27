@@ -2,11 +2,10 @@
 <div class="searchsection">
   <h1>Movie database</h1>
   <h2>The largest collection of movies in the world...</h2>
-  <form class="flexcontainer" action="/search" method="POST">
-    <input class="inputfield" placeholder="Type a movie title here!" type="text" id="movie" name="movie">
+  <form action="/search" method="POST">
+    <input placeholder="Type a movie title here!" type="text" id="movie" name="movie">
     <button type='submit' class="searchbtn">SEARCH</button>
   </form>
-
 </div>  
 
 <div class="mapssection">
@@ -14,16 +13,13 @@
     <h1>Discover all movie theaters in Amsterdam</h1>
     <h2>Find a movie theatre in your neigbourhood...</h2>
   </div>
-
   <div class="cinemalocations">
     <ul class="locations">
       {{#each cinemaHbs}}
         <a href="/cinema/{{_id}}"><li>{{region}}</li></a>
       {{/each}}
     </ul>
-
   <div id="map"></div>
-
   </div>
 </div>
-<script type="text/javascript" src="/javascripts/googlemaps.js"></script>
+<script type="text/javascript" src="/javascripts/googlemaps.js"></script>       

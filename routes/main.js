@@ -6,7 +6,6 @@ const axios = require('axios')
 const multer = require("multer")
 const upload = multer({ dest: './public/uploads/' });
 
-
 //only allow access if logged in
 router.use((req,res,next) => {
     if(req.session.currentUser) {
@@ -145,10 +144,21 @@ router.get('/settings',(req,res)=>{
 
 //update user settings
 router.post("/save",upload.single("profileimage"),(req,res) => {
+    let fileimage = ''
+    if (req.file){
+        fileimage = req.file.filename
+    } else {
+        Profile.findOne({user:req.session.currentUser._id})
+        .then(profile=>{
+            fileimage = profile.imagefile
+        })
+        .catch(err=>console.log(err))
+    }
+
     Profile
     .findOneAndUpdate({user:req.session.currentUser._id}, {
         name: req.body.username,
-        imagefile: req.file.filename,
+        imagefile: fileimage,
         nationality: req.body.nationality,
         birthyear: req.body.birthyear,
         firstlanguage: req.body.firstlanguage

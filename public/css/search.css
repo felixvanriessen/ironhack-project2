@@ -3,27 +3,46 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width:100vw;
+    height: 25vh;
 }
 
-.flexcontainer {
+.searchsection h2 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.searchsection form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.inputfield {
-    border: 2px solid red;
-    border-radius: 4px;
-    width: 600px;
-    height: 100px;
-    margin-top: 25px;
+.searchsection input {
+    width: 80%;
+    height:30px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.searchbtn {
-    margin-top: -25px;
-    width: 125px;
-    height: 30px;
+.searchsection button {
+    background: none;
+    background-color: #E50914;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px black;
+    font-size: 1.2rem;
+    width:40vw;
+    height:40px;
+    margin-top: 10px;
+}
+
+.mapssection {
+    height: 60vh;
+    width: 100vw;
 }
 
 .titlesection {
@@ -31,6 +50,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 15vh;
+}
+
+.titlesection h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.titlesection h2 {
+    text-align: center;
+    font-size: 1rem;
 }
 
 .cinemalocations {
@@ -38,13 +67,15 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    height: 45vh;
 }
 
 .locations {
     line-height: 2.5;
+    list-style: none;
 }
 
 #map {
     width: 50%;
-    height: 400px;
+    height: 40vh;
   }

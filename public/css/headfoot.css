@@ -17,11 +17,11 @@ nav {
     background-color: #E50914;
 }
 
-.navlink {
+nav a {
     color: white;
 }
 
 nav img {
-    height:50px;
+    height:40px;
     border:2px solid rgb(151, 8, 15);
 }
