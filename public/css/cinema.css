@@ -15,19 +15,54 @@
 
 .theatreimages {
     float: right;
-    box-shadow: 4px 4px lightgrey;
     border: 1px solid #ddd;
     border-radius: 2px;
-    padding: 1px;
 }
 
 .currentlyplayed {
     line-height: 1.5;
+    margin-top: 150px;
 }
 
 .movieplays {
     margin-left: 25px;
 }
 
+.movietheatreimg {
+    width: 780px
+}
 
-
+@media screen and (max-width: 800px) {
+    .stylecinema {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .maintheatretitle {
+        padding-bottom: 1px;       
+    }
+    
+    .theatredetails {
+        line-height: 1.5;
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .theatreimages {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+    }
+    
+    .currentlyplayed {
+        line-height: 1.5;
+        margin-top: 10px;
+    }
+    
+    .movieplays {
+        margin-left: 25px;
+    }
+    
+    .movietheatreimg {
+        width: 330px
+    }    
+}

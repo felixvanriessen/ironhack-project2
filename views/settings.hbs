@@ -1,29 +1,24 @@
-
-
 <form class="settingspage" action="save" method="POST" enctype="multipart/form-data">
     <a href="/search">BACK TO SEARCH PAGE</a>
-
-    {{!-- <div class="usernamediv"> --}}
-        <label for="username">Edit your username</label>
-        <input type="text" name='username' value={{settingsHbs.name}}>
-    {{!-- </div> --}}
+    
+    <label for="username">Edit your username</label>
+    <input class="inputfield" type="text" name='username' value={{settingsHbs.name}}>
     <br>
 
-    {{!-- <div class="imagediv"> --}}
     <label for="profile-image">Upload a profile picture</label>
     <input type="file" name="profileimage">
     <br>
 
     <label for="nationality">Edit your nationality</label>
-    <input type="text" name="nationality" value={{settingsHbs.nationality}}>
+    <input class="inputfield" type="text" name="nationality" value={{settingsHbs.nationality}}>
     <br>
 
     <label for="birthyear">Edit your year of birth</label>
-    <input type="text" name="birthyear" value={{settingsHbs.birthyear}}>
+    <input class="inputfield" type="text" name="birthyear" value={{settingsHbs.birthyear}}>
     <br>
 
     <label for="firstlanguage">Edit your first language</label>
-    <input type="text" name="firstlanguage" value={{settingsHbs.firstlanguage}}>
+    <input class="inputfield" type="text" name="firstlanguage" value={{settingsHbs.firstlanguage}}>
     <br>
 
     <button class="savebtn" type="submit">SAVE</button>
