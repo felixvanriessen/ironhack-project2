@@ -33,6 +33,10 @@
 }
 
 @media screen and (max-width: 800px) {
+    .titletheatre{
+        font-size: 25px;
+    }
+    
     .stylecinema {
         display: flex;
         flex-direction: column;
@@ -63,6 +67,6 @@
     }
     
     .movietheatreimg {
-        width: 330px
+        width: 330px;
     }    
 }
