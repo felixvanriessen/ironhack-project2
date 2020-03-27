@@ -1,21 +1,29 @@
-<a href="/search">BACK TO SEARCH PAGE</a>
-<form action="save" method="POST" enctype="multipart/form-data">
+<form class="settingspage" action="save" method="POST" enctype="multipart/form-data">
+    <a href="/search">BACK TO SEARCH PAGE</a>
+    
     <label for="username">Edit your username</label>
-    <input type="text" name='username' value={{settingsHbs.name}}>
+    <input class="inputfield" type="text" name='username' value={{settingsHbs.name}}>
+    <br>
 
     <label for="profile-image">Upload a profile picture</label>
     <input type="file" name="profileimage">
-
-    <img src="/uploads/{{settingsHbs.imagefile}}" alt="profilepic">
+    <br>
 
     <label for="nationality">Edit your nationality</label>
-    <input type="text" name="nationality" value={{settingsHbs.nationality}}>
+    <input class="inputfield" type="text" name="nationality" value={{settingsHbs.nationality}}>
+    <br>
 
     <label for="birthyear">Edit your year of birth</label>
-    <input type="text" name="birthyear" value={{settingsHbs.birthyear}}>
+    <input class="inputfield" type="text" name="birthyear" value={{settingsHbs.birthyear}}>
+    <br>
 
     <label for="firstlanguage">Edit your first language</label>
-    <input type="text" name="firstlanguage" value={{settingsHbs.firstlanguage}}>
+    <input class="inputfield" type="text" name="firstlanguage" value={{settingsHbs.firstlanguage}}>
+    <br>
 
-    <button type="submit">SAVE</button>
+    <button class="savebtn" type="submit">SAVE</button>
 </form>
+
+<div class="profilepic">
+    <img class="uploadimage" src="/uploads/{{settingsHbs.imagefile}}" alt="profilepic">
+</div>

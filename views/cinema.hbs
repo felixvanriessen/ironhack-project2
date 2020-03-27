@@ -1,39 +1,29 @@
 {{>navbar}}
 <div class="stylecinema">
-<h1>Movie theatre {{cinemaHbs.region}}</h1>
+    <h1 class="titletheatre">Movie theatre {{cinemaHbs.region}}</h1>
 
-<br>
-<div class="theatredetailsmain">    
-    <section></section>
-    <h2>Movie theatre details</h2>    
-    <div class="theatredetails">
-        <ul>
-            <li>Opening days: {{cinemaHbs.openingdays}}</li>
-            <li>Seats: {{cinemaHbs.seats}}</li>
-            <li>Region: {{cinemaHbs.region}}</li>
-            <li>Street: {{cinemaHbs.street}}</li>
+    <div class="theatredetailsmain">    
+            <h2>Movie theatre details</h2>    
+            <div class="theatredetails">
+                <ul>
+                    <li>Opening days: {{cinemaHbs.openingdays}}</li>
+                    <li>Seats: {{cinemaHbs.seats}}</li>
+                    <li>Region: {{cinemaHbs.region}}</li>
+                    <li>Street: {{cinemaHbs.street}}</li>
+                </ul>
+            </div>
+
+            <div class="theatreimages">
+                <img class="movietheatreimg" src={{cinemaHbs.image}} alt="movietheatrename">
+            </div>
+    </div>
+
+    <div class="currentlyplayed">
+        <h2>Opening hours</h2>
+        <ul class="movieplays">
+            {{#each cinemaHbs.openingdays as |day|}}
+                <li> {{day}} 8PM</li>
+            {{/each}}
         </ul>
     </div>
-
-    <div class="theatreimages">
-        <img class="movietheatreimg" src={{cinemaHbs.image}} alt="movietheatrename">
-    </div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div class="currentlyplayed">
-    <h2>Movies currently being played</h2>
-    <ul class="movieplays">
-        {{#each cinemaHbs.openingdays as |day|}}
-            <li> {{day}} 8PM</li>
-        {{/each}}
-    </ul>
-</div>
-</section>
 </div>
